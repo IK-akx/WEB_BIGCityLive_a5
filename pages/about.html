@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="../styles/aboutstyle.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+   <!-- Main Content -->
+  <div class="main-content">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="../index.html">
+        <img src="../images/logo.png" alt="Logo" width="40" height="40" class="rounded-circle me-2">
+        <span class="fw-bold">BIG CITY LIVE</span>
+      </a>
+      
+      <!-- Simple responsive menu without toggle functionality -->
+      <div class="d-lg-flex flex-grow-1">
+        <ul class="navbar-nav me-auto d-none d-lg-flex">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../pages/events.html">Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="../pages/about.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../pages/cities.html">Places</a>
+          </li>
+        </ul>
+        
+        <div class="navbar-nav ms-auto d-none d-lg-flex">
+          <a class="nav-link btn btn-outline-light me-2" href="../pages/login.html">Sign In</a>
+          <a class="nav-link btn btn-warning text-dark" href="#">Sign Up</a>
+        </div>
+      </div>
+
+      <!-- Mobile menu (simple dropdown without JS) -->
+      <div class="d-lg-none">
+        <select class="form-select bg-dark text-white border-0" onchange="window.location.href=this.value">
+          <option value="index.html" selected>Home</option>
+          <option value="pages/events.html">Events</option>
+          <option value="pages/about.html">About Us</option>
+          <option value="#">Categories</option>
+          <option disabled>---</option>
+          <option value="pages/login.html">Sign In</option>
+          <option value="#">Sign Up</option>
+        </select>
+      </div>
+    </div>
+  </nav>
+
+
+
+   <!-- Main Content -->
+  <main class="about-container">
+    <section class="about-hero">
+      <h1>About Us</h1>
+      <p>
+        Welcome to <strong>BIG CITY LIVE</strong> – your ultimate guide to all events and activities happening in the city!
+      </p>
+      <p>
+        Our mission is simple: to bring together residents and visitors by showcasing the most exciting, diverse, and inspiring events the city has to offer. 
+        From concerts, exhibitions, and theater performances to festivals, workshops, and local meetups – we make sure you never miss out on what’s happening around you.
+      </p>
+      <p>
+        We believe that every city is alive with culture, creativity, and energy. BIG CITY LIVE was created to help you discover that energy and experience it to the fullest. 
+        Whether you’re looking for a fun night out, family-friendly activities, or hidden gems, we’ve got you covered with personalized recommendations and up-to-date listings.
+      </p>
+      <p>
+        Our vision is to make urban life more connected, vibrant, and memorable by being the go-to platform for exploring city events.
+      </p>
+      <p>
+        At BIG CITY LIVE, the city is yours to experience – live it to the fullest!
+      </p>
+    </section>
+  </main>
+
+
+
+   <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <!-- Logo -->
+      <div class="footer-logo">
+        <img src="../images/logo.png" alt="Company Logo">
+        <p>BIG CITY LIVE</p>
+      </div>
+
+      <!-- Contacts -->
+      <div class="footer-info">
+        <h3>Contact Us</h3>
+        <p>Creaters: Iskander Kustayev, Olzhas Omerzak, Bekbolat Yergalyuly</p>
+        <p>Phone: +7 777 777 7777</p>
+        <p>Email: info@bigcitylive.com</p>
+        <p>Address: st. Mangylyk El C1, Astana</p>
+      </div>
+
+      <!-- Networks -->
+      <div class="footer-social">
+        <h3>Follow Us</h3>
+          <div class="social-links">
+            <a href="https://www.tiktok.com/@fxrnweh9?_t=ZM-8zwcUwP9XSt&_r=1"><img src="../images/tiktokimg.png" alt="TikTok" width="20" height="20"></a>
+            <a href="https://www.instagram.com/bekbolatergaliuly?igsh=bzQxdDBpdjAyOXFv&utm_source=qr"><img src="../images/instaimg.png" alt="Instagram" width="20" height="20"></a>
+            <a href="https://www.instagram.com/bekbolatergaliuly?igsh=bzQxdDBpdjAyOXFv&utm_source=qr"><img src="../images/youtubeimg.png" alt="YouTube" width="20" height="20"></a>
+          </div>
+        </div>
+      </div>
+
+    <p class="footer-bottom">&copy; 2025 BIG CITY LIVE. All rights reserved.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('../images/tim-broadbent-Lk6k4nDCOD8-unsplash.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.wrapper {
+    width: 420px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px 40px;
+}
+
+.wrapper h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+.input-box {
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.form-control {
+    height: 100%;
+    background: transparent !important;
+    border: 2px solid rgba(255, 255, 255, .2) !important;
+    border-radius: 40px !important;
+    font-size: 16px;
+    color: #fff !important;
+    padding: 20px 45px 20px 20px !important;
+}
+
+.form-control::placeholder {
+    color: #fff !important;
+}
+
+.btn-light {
+    height: 45px;
+    border-radius: 40px !important;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+}
+
+.not-register {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.not-register a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.not-register a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    .wrapper {
+        width: 90%;
+        padding: 20px;
+    }
+}
