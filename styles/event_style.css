@@ -413,3 +413,26 @@ footer {
     padding: 15px 30px;
     margin-top: 10px;
 }
+
+.countdown-simple {
+    background: #e3f2fd;  /* Light blue background */
+    padding: 10px;        /* Smaller padding */
+    border-radius: 6px;   /* Smaller border radius */
+    text-align: center;
+    margin: 15px auto;    /* Center with auto margins */
+    border-left: 3px solid #2196f3; /* Blue border */
+    max-width: 300px;     /* Limit width to make it smaller */
+}
+
+.countdown-simple h4 {
+    margin: 0;
+    color: #1565c0;       /* Darker blue text */
+    font-size: 14px;      /* Smaller font size */
+    font-weight: normal;  /* Less bold */
+}
+
+#countdown-display {
+    color: #1976d2;       /* Medium blue */
+    font-weight: bold;
+    font-size: 14px;      /* Match the smaller size */
+}
