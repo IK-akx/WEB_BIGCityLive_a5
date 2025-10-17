@@ -125,6 +125,27 @@
   
     <div id="datetime-block"></div>
 
+     <!-- POPUP MODAL -->
+    <div id="ticketModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Buy Your Ticket</h2>
+        <form id="ticketForm">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="Enter your name" required>
+
+          <label for="email">Gmail</label>
+          <input type="email" id="email" placeholder="example@gmail.com" required>
+
+          <button type="submit" class="buy-btn">Buy Ticket</button>
+        </form>
+      </div>
+    </div>
+
+    
+    <script src="../scripts/eventpopup.js"></script>
+
+
     <script src="../scripts/datetime.js"></script>
     <script src="../scripts/headerscript.js"></script>
 </body>
