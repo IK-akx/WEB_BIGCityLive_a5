@@ -12,3 +12,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+
+
+// ===== READ MORE BUTTONS =====
+document.addEventListener("DOMContentLoaded", () => {
+  const readMoreLinks = document.querySelectorAll(".read-more");
+
+  readMoreLinks.forEach(link => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const cardText = e.target.closest(".card-text");
+      const extraText = cardText.querySelector(".extra-text");
+
+      const isHidden = extraText.style.display === "none";
+
+      extraText.style.display = isHidden ? "block" : "none";
+      e.target.textContent = isHidden ? "Read Less" : "Read More";
+    });
+  });
+});

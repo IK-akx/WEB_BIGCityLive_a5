@@ -42,6 +42,7 @@
         </div>
       </div>
 
+    
       <!-- Mobile menu (simple dropdown without JS) -->
       <div class="d-lg-none">
         <select class="form-select bg-dark text-white border-0" onchange="window.location.href=this.value">
@@ -72,12 +73,18 @@
     <!-- Card 1 -->
     <div class="card">
       <div class="card-image">
-        <img src="images/astanaimage.png" alt="Astana Image">
+        <img src="https://i.ytimg.com/vi/dyJKAUTgSYs/maxresdefault.jpg" alt="Astana Image">
       </div>
       <div class="card-text">
         <h2>Astana</h2>
-        <p>The modern capital of Kazakhstan with unique architecture</p>
-        <a href="pages/details1.html">Read More</a>
+        <p>The modern capital of Kazakhstan with unique architecture.</p>
+
+        <p class="extra-text" style="display: none;">
+          Astana is known for its futuristic skyline, featuring the Bayterek Tower and the Khan Shatyr. 
+          It’s a symbol of Kazakhstan’s growth and modernization.
+        </p>
+
+        <a class="read-more">Read More</a>
       </div>
     </div>
 
@@ -88,8 +95,14 @@
       </div>
       <div class="card-text">
         <h2>Almaty</h2>
-        <p>A cultural and economic hub at the foothills of the Zailiyskiy Alatau mountains</p>
-        <a href="#">Read More</a>
+        <p>A cultural and economic hub at the foothills of the Zailiyskiy Alatau mountains.</p>
+
+        <p class="extra-text" style="display: none;">
+          Almaty was the former capital of Kazakhstan. It’s famous for its cafes, ski resorts, 
+          and breathtaking mountain views that attract tourists from all over the world.
+        </p>
+
+        <a class="read-more">Read More</a>
       </div>
     </div>
 
@@ -100,11 +113,18 @@
       </div>
       <div class="card-text">
         <h2>Aktobe</h2>
-        <p>A major industrial city in western Kazakhstan with developed infrastructure</p>
-        <a href="#">Read More</a>
+        <p>A major industrial city in western Kazakhstan with developed infrastructure.</p>
+
+        <p class="extra-text" style="display: none;">
+          Aktobe is a rapidly growing city known for its industries, cultural centers, 
+          and warm hospitality. It’s one of the key regional hubs in the country.
+        </p>
+
+        <a class="read-more">Read More</a>
       </div>
     </div>
   </div>
+
 
 
 
@@ -178,7 +198,10 @@
 
   </div> <!-- Close main-content -->
 
+  <button id="themeToggleBtn" class="btn btn-outline-secondary">🌙 Night Mode</button>
+
   <script src="scripts/mainscripts.js"></script>
   <script src="scripts/headerscript.js"></script>
+  <script src="scripts/dntheme.js"></script>
 </body>
 </html>
