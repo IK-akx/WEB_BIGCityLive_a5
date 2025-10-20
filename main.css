@@ -8,8 +8,10 @@
 body {
   background: linear-gradient(to bottom, #ffffff00, #021e40), url('https://www.atomic-energy.ru/files/images/2023/11/1667557475_5-sportishka-com-p-astana-dostoprimechatelnosti-oboi-5.jpg') center/cover fixed; 
   transition: background 1s ease-in-out, color 0.5s;
+  /* transition: background 0.5s ease, color 0.5s ease; */
   color: #fff;
 }
+
 
 /* Night Theme */
 body.night-theme {
@@ -424,3 +426,101 @@ footer {
   font-size: 14px;
   color: #ffffff;
 }
+
+
+
+
+/* Day / Night themes */
+
+/* Day theme */
+.day-theme {
+  background: linear-gradient(to bottom right, #e8f1ff, #ffffff);
+  color: #021e40;
+}
+
+.day-theme .card {
+  background: white;
+  color: #021e40;
+}
+
+.day-theme .card-text a {
+  color: #1e6fa8;
+  border-color: #1e6fa8;
+}
+
+.day-theme .faq {
+  background: white;
+  color: #021e40;
+}
+
+.day-theme .faq-question {
+  color: #021e40;
+}
+
+.day-theme .faq-answer p {
+  color: #021e40;
+}
+
+/* Night theme */
+.night-theme {
+  background: linear-gradient(to bottom right, #0a1535, #0e1e4d);
+  color: white;
+}
+
+/* cards */
+.night-theme .card {
+  background: linear-gradient(145deg, #162447, #1f4068);
+  color: white;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
+}
+
+.night-theme .card-text a {
+  color: #a8cfff;
+  border-color: #a8cfff;
+}
+
+.night-theme .card-text a:hover {
+  background: #a8cfff;
+  color: #0a1535;
+}
+
+
+body.night-theme .card-text,
+body.night-theme .card-text h2,
+body.night-theme .card-text p,
+body.night-theme .card-text a {
+  color: white !important;
+  border-color: white !important;
+}
+
+
+/* FAQ */
+.night-theme .faq {
+  background: linear-gradient(145deg, #1b2a4a, #0e1e4d);
+  color: white;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
+}
+
+.night-theme .faq h2 {
+  color: #ffffff;
+}
+
+.night-theme .faq-question {
+  color: #ffffff;
+}
+
+.night-theme .faq-question:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.night-theme .faq-answer p {
+  color: #d0dcff;
+}
+
+.card,
+.faq {
+  transition: background 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
+}
+
+
+

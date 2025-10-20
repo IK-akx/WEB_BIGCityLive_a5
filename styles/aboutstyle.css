@@ -220,6 +220,7 @@ p {
   }
 }
 
+
 /* Footer */
 footer {
   background: #f5f5f500;
@@ -293,3 +294,37 @@ footer {
   color: #ffffff;
 }
 
+
+/* Day / Night theme*/
+
+
+/* Day */
+.day-theme .about-container {
+  background: #ffffff;
+  color: #021e40;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.day-theme .about-hero h1 {
+  color: #021e40;
+}
+
+.day-theme .about-hero p {
+  color: #333;
+}
+
+
+/* Night */
+.night-theme .about-container {
+  background: linear-gradient(to bottom right, #0a1535, #0e1e4d);
+  color: #eaeaea;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+}
+
+.night-theme .about-hero h1 {
+  color: white;
+}
+
+.night-theme .about-hero p {
+  color: #ccc;
+}
