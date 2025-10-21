@@ -789,3 +789,55 @@ footer {
         align-items: stretch;
     }
 }
+
+/* Enhanced Animation Styles */
+.modal-content {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+.dynamic-event-card {
+    transition: all 0.3s ease !important;
+}
+
+/* Loading animation for filters */
+.events-filter-system {
+    transition: all 0.6s ease;
+}
+
+.events-grid-main {
+    transition: all 0.4s ease;
+}
+
+/* Button hover animations */
+.filter-btn, .dynamic-view-btn, .btn {
+    transition: all 0.3s ease !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.filter-btn:hover, .dynamic-view-btn:hover, .btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4) !important;
+}
+
+/* Pulse animation for free events */
+.free-badge {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Smooth image transitions */
+.dynamic-event-image img {
+    transition: transform 0.5s ease !important;
+}
+
+/* Form input focus animations */
+.modal-content input:focus {
+    transform: scale(1.02);
+    transition: all 0.2s ease;
+}
