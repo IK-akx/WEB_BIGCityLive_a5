@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
   if (username && navActions) {
     navActions.innerHTML = `
       <div class="d-flex align-items-center">
-        <img src="../images/profile.png" alt="Profile" width="40" height="40" class="rounded-circle me-2 border border-light">
+        <img src="https://www.manageengine.com/images/speaker-placeholder.png" alt="Profile" width="40" height="40" class="rounded-circle me-2 border border-light">
         <span class="text-white fw-semibold me-3">${username}</span>
         <button id="logoutBtn" class="btn btn-outline-light btn-sm">Log out</button>
       </div>
