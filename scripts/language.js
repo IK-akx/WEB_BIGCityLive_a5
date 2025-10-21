@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const langSelect = document.getElementById("languageSelect");
   const mobileNavSelect = document.querySelector(".d-lg-none select");
 
-  // Переводы
+  // translate
   const translations = {
     en: {
       brand: "BIG CITY LIVE",
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // Функция обновления текста — использует switch (как требует задание)
+  // Switch function
   function updateLanguage(lang) {
     let t;
     switch (lang) {
@@ -66,12 +66,10 @@ document.addEventListener("DOMContentLoaded", () => {
         break;
     }
 
-    // ---- Header / Navbar ----
-    // Не трогаем весь <a class="navbar-brand"> чтобы не удалять <img>
+    // Header 
     const brandSpan = document.querySelector(".navbar-brand .fw-bold");
     if (brandSpan) brandSpan.textContent = t.brand;
 
-    // Навигационные ссылки (точно находим nav-links, а не brand)
     const navHome = document.querySelector('.navbar-nav a.nav-link[href="index.html"]');
     const navEvents = document.querySelector('.navbar-nav a.nav-link[href="pages/events.html"]');
     const navAbout = document.querySelector('.navbar-nav a.nav-link[href="pages/about.html"]');
@@ -88,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (signInBtn) signInBtn.textContent = t.signIn;
     if (signUpBtn) signUpBtn.textContent = t.signUp;
 
-    // Mobile nav (the select in .d-lg-none) - update option labels if exists
+    // Mobile nav 
     if (mobileNavSelect) {
       // keep values, only update labels
       const opts = mobileNavSelect.options;
@@ -102,30 +100,28 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    // ---- Banner ----
+    // Banner
     const bannerTitle = document.querySelector(".visit-banner h1");
     const bannerText = document.querySelector(".visit-banner p");
     if (bannerTitle) bannerTitle.textContent = t.bannerTitle;
     if (bannerText) bannerText.textContent = t.bannerText;
 
-    // ---- Cards: Read more button text ----
+    // Cards: Read more button text
     document.querySelectorAll(".read-more").forEach(btn => {
-      // If currently expanded, we leave the "read less" text logic to click handler,
-      // but initialize to readMore text.
       btn.textContent = t.readMore;
-      // store localized versions on element for click script to use if needed
+
       btn.dataset.readMore = t.readMore;
       btn.dataset.readLess = t.readLess;
     });
 
-    // ---- FAQ ----
+    // FAQ
     const faqTitle = document.querySelector(".faq h2");
     if (faqTitle) faqTitle.textContent = t.faqTitle;
 
     const faqQuestions = document.querySelectorAll(".faq-question");
     const faqAnswers = document.querySelectorAll(".faq-answer p");
 
-    // safely update up to first three Q/A if present
+    // safely update up to first three Q/A 
     if (faqQuestions[0]) faqQuestions[0].innerHTML = `${t.faqQ1} <span class="arrow">▼</span>`;
     if (faqAnswers[0]) faqAnswers[0].textContent = t.faqA1;
 
@@ -135,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (faqQuestions[2]) faqQuestions[2].innerHTML = `${t.faqQ3} <span class="arrow">▼</span>`;
     if (faqAnswers[2]) faqAnswers[2].textContent = t.faqA3;
 
-    // ---- Footer ----
+    // Footer
     const footerContactTitle = document.querySelector(".footer-info h3");
     const footerCreators = document.querySelector(".footer-info p");
     const footerFollow = document.querySelector(".footer-social h3");
@@ -145,12 +141,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (footerFollow) footerFollow.textContent = t.followTitle;
   }
 
-  // Инициализация: читаем язык из localStorage (по умолчанию en)
+  // default lang is eng
   const savedLang = localStorage.getItem("language") || "en";
   if (langSelect) langSelect.value = savedLang;
   updateLanguage(savedLang);
 
-  // Смена языка (сохранение в localStorage)
+  // Switch lang. and save it in LocalStorage
   if (langSelect) {
     langSelect.addEventListener("change", () => {
       const selected = langSelect.value || "en";
