@@ -44,3 +44,5 @@ if (learnMoreBtn && aboutText) {
     expanded = !expanded;
   });
 }
+
+

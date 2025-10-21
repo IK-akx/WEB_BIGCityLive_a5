@@ -1,47 +1,45 @@
 const form = document.querySelector('.needs-validation');
 const errorBox = document.getElementById('error-message');
+const resetBtn = document.getElementById('resetBtn');
+const inputs = document.querySelectorAll('input');
 
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
 
-form.addEventListener('submit', function(event) {
+  const username = document.getElementById('username').value.trim();
+  const password = document.getElementById('password').value.trim();
 
-    // Prevent form from reloading the page before validation
-    event.preventDefault(); 
+  let message = '';
+  let isError = false;
 
+  if (!username) {
+    message = 'Enter your username.';
+    isError = true;
+  } else if (!password) {
+    message = 'Enter your password.';
+    isError = true;
+  } else if (password.length < 6) {
+    message = 'The password must be at least 6 characters long.';
+    isError = true;
+  }
 
-    const username = document.getElementById('username').value.trim();
-    const password = document.getElementById('password').value.trim();
+  if (isError) {
+    showMessage(message, 'danger');
+    return;
+  }
 
-    let errors = [];
+  localStorage.setItem('username', username);
+  showMessage('Login successful!', 'success');
 
-    if (username === '') {
-        errors.push('Enter your username.');
-    }
-
-    if (password === '') {
-        errors.push('Enter your password.');
-    } 
-    else if (password.length < 6) {
-        errors.push('The password must be at least 6 characters long.');
-    }
-
-
-
-    if (errors.length > 0) {
-        errorBox.textContent = errors.join(' ');
-        errorBox.classList.add('text-danger');
-        errorBox.classList.remove('text-success');
-        return;
-    }
-
-    localStorage.setItem('username', username);
-
-    errorBox.textContent = 'Login successful!';
-    errorBox.classList.remove('text-danger');
-    errorBox.classList.add('text-success');
-
-    setTimeout(() => {
-        window.location.href = '../index.html';
-    }, 1000);
-
-    
+  setTimeout(() => window.location.href = '../index.html', 1000);
 });
+
+resetBtn.addEventListener('click', () => {
+  inputs.forEach(i => i.value = '');
+  showMessage('The form has been successfully cleared!', 'success');
+});
+
+function showMessage(text, type) {
+  errorBox.textContent = text;
+  errorBox.className = type === 'danger' ? 'text-danger' : 'text-success';
+}
