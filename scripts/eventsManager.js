@@ -1,4 +1,4 @@
-// eventsManager.js - UPDATED WITHOUT SEARCH AND STATS
+// eventsManager.js - WITH ANIMATIONS
 const EventsManager = {
     events: [
         {
@@ -10,7 +10,7 @@ const EventsManager = {
             category: "concert",
             isFree: false,
             image: "../images/Details1.jpeg",
-            link: "details1.html"
+            link: "../details1.html"
         },
         {
             id: 2,
@@ -21,7 +21,7 @@ const EventsManager = {
             category: "concert",
             isFree: false,
             image: "../images/Details2.png",
-            link: "details2.html"
+            link: "../details2.html"
         },
         {
             id: 3,
@@ -32,7 +32,7 @@ const EventsManager = {
             category: "sports",
             isFree: false,
             image: "../images/Details3.jpeg",
-            link: "details3.html"
+            link: "../details3.html"
         },
         {
             id: 4, 
@@ -43,7 +43,7 @@ const EventsManager = {
             category: "concert",
             isFree: false,
             image: "../images/Details4.jpeg",
-            link: "details4.html"
+            link: "../details4.html"
         },
         {
             id: 5,
@@ -54,7 +54,7 @@ const EventsManager = {
             category: "sports", 
             isFree: true,
             image: "../images/Details5.jpeg",
-            link: "details5.html"
+            link: "../details5.html"
         },
         {
             id: 6,
@@ -65,7 +65,7 @@ const EventsManager = {
             category: "shopping",
             isFree: true,
             image: "../images/Details6.jpeg",
-            link: "details6.html"
+            link: "../details6.html"
         }
     ],
 
@@ -74,6 +74,7 @@ const EventsManager = {
     init: function() {
         this.filteredEvents = [...this.events];
         this.createFilterSystem();
+        this.animatePageLoad();
         this.displayFilteredEvents();
         this.setupFilterListeners();
     },
@@ -83,6 +84,7 @@ const EventsManager = {
         filterContainer.className = 'events-filter-system';
         filterContainer.innerHTML = `
             <div class="filter-header">
+                <h2>🎭 Find Your Perfect Event</h2>
                 <p>Filter events by category or price</p>
             </div>
             
@@ -216,6 +218,13 @@ const EventsManager = {
     },
 
     resetFilters: function() {
+        // Animate reset button
+        const resetBtn = document.getElementById('resetFilters');
+        resetBtn.style.transform = 'scale(0.9)';
+        setTimeout(() => {
+            resetBtn.style.transform = 'scale(1)';
+        }, 150);
+
         document.getElementById('categoryFilter').value = 'all';
         document.getElementById('priceFilter').value = 'all';
         document.getElementById('sortFilter').value = 'name';
@@ -231,27 +240,28 @@ const EventsManager = {
         if (this.filteredEvents.length === 0) {
             eventsGrid.innerHTML = `
                 <div class="no-events-message">
-                    <h3> No events found</h3>
+                    <h3>🎭 No events found</h3>
                     <p>Try adjusting your filters</p>
                     <button onclick="EventsManager.resetFilters()" class="reset-search-btn">
                         Show All Events
                     </button>
                 </div>
             `;
+            this.animateNoResults();
             return;
         }
 
         const eventsHTML = this.filteredEvents.map(event => `
             <div class="dynamic-event-card" data-id="${event.id}">
                 <div class="dynamic-event-image">
-                    <img src="${event.image}" alt="${event.name}" onerror="this.src='images/logo.png'">
+                    <img src="${event.image}" alt="${event.name}" onerror="this.src='../images/logo.png'">
                     ${event.isFree ? '<span class="free-badge">FREE</span>' : ''}
                 </div>
                 <div class="dynamic-event-info">
                     <h3 class="dynamic-event-title">${event.name}</h3>
                     <div class="dynamic-event-meta">
-                        <span> ${event.date.split('|')[0]}</span>
-                        <span> ${event.location}</span>
+                        <span>📅 ${event.date.split('|')[0]}</span>
+                        <span>📍 ${event.location}</span>
                     </div>
                     <p class="dynamic-event-description">
                         ${this.getEventDescription(event.category)}
@@ -260,7 +270,7 @@ const EventsManager = {
                         <div class="dynamic-event-price ${event.isFree ? 'free' : 'paid'}">
                             ${event.isFree ? '🎉 FREE' : `💰 ${event.price}`}
                         </div>
-                        <a href="${event.link}" class="dynamic-view-btn">
+                        <a href="pages/${event.link}" class="dynamic-view-btn">
                             View Details →
                         </a>
                     </div>
@@ -269,6 +279,7 @@ const EventsManager = {
         `).join('');
 
         eventsGrid.innerHTML = eventsHTML;
+        this.animateFilterResults();
     },
 
     getEventDescription: function(category) {
@@ -278,6 +289,61 @@ const EventsManager = {
             shopping: "Discover great deals and new store openings."
         };
         return descriptions[category] || "Don't miss this exciting event!";
+    },
+
+    // ✅ ANIMATION METHODS
+    animatePageLoad: function() {
+        const filterSystem = document.querySelector('.events-filter-system');
+        if (filterSystem) {
+            filterSystem.style.opacity = '0';
+            filterSystem.style.transform = 'translateY(30px)';
+            
+            setTimeout(() => {
+                filterSystem.style.transition = 'all 0.6s ease';
+                filterSystem.style.opacity = '1';
+                filterSystem.style.transform = 'translateY(0)';
+            }, 100);
+        }
+    },
+
+    animateFilterResults: function() {
+        const eventsGrid = document.getElementById('eventsGrid');
+        if (eventsGrid && this.filteredEvents.length > 0) {
+            eventsGrid.style.opacity = '0';
+            eventsGrid.style.transform = 'scale(0.95)';
+            
+            setTimeout(() => {
+                eventsGrid.style.transition = 'all 0.4s ease';
+                eventsGrid.style.opacity = '1';
+                eventsGrid.style.transform = 'scale(1)';
+            }, 50);
+
+            const cards = eventsGrid.querySelectorAll('.dynamic-event-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'all 0.4s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 + (index * 80));
+            });
+        }
+    },
+
+    animateNoResults: function() {
+        const eventsGrid = document.getElementById('eventsGrid');
+        if (eventsGrid) {
+            eventsGrid.style.opacity = '0';
+            eventsGrid.style.transform = 'scale(0.8)';
+            
+            setTimeout(() => {
+                eventsGrid.style.transition = 'all 0.5s ease';
+                eventsGrid.style.opacity = '1';
+                eventsGrid.style.transform = 'scale(1)';
+            }, 50);
+        }
     }
 };
 
