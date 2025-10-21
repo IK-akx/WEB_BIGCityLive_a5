@@ -43,3 +43,37 @@ function showMessage(text, type) {
   errorBox.textContent = text;
   errorBox.className = type === 'danger' ? 'text-danger' : 'text-success';
 }
+
+
+
+
+
+// Greeting button logic
+const greetBtn = document.getElementById('greetBtn');
+
+greetBtn.addEventListener('click', () => {
+  const hour = new Date().getHours();
+  let timeOfDay = '';
+
+  if (hour < 12) timeOfDay = 'morning';
+  else if (hour < 18) timeOfDay = 'afternoon';
+  else timeOfDay = 'evening';
+
+  let message = '';
+
+  switch (timeOfDay) {
+    case 'morning':
+      message = 'Good morning!';
+      break;
+    case 'afternoon':
+      message = 'Good afternoon!';
+      break;
+    case 'evening':
+      message = 'Good evening!';
+      break;
+    default:
+      message = 'Hello!';
+  }
+
+  alert(message);
+});
