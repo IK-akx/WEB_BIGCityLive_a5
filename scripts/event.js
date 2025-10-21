@@ -70,3 +70,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Start the smart countdown
     startSmartCountdown();
 });
+
+
+
+
+
