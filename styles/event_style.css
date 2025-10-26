@@ -841,3 +841,20 @@ footer {
     transform: scale(1.02);
     transition: all 0.2s ease;
 }
+
+/* Add this to your event_style.css file */
+.events-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 20px !important;
+}
+
+main {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+footer {
+    width: 100% !important;
+    max-width: 100% !important;
+}

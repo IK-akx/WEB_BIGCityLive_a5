@@ -84,7 +84,7 @@ const EventsManager = {
         filterContainer.className = 'events-filter-system';
         filterContainer.innerHTML = `
             <div class="filter-header">
-                <h2>🎭 Find Your Perfect Event</h2>
+                <h2> Find Your Perfect Event</h2>
                 <p>Filter events by category or price</p>
             </div>
             
@@ -260,15 +260,15 @@ const EventsManager = {
                 <div class="dynamic-event-info">
                     <h3 class="dynamic-event-title">${event.name}</h3>
                     <div class="dynamic-event-meta">
-                        <span>📅 ${event.date.split('|')[0]}</span>
-                        <span>📍 ${event.location}</span>
+                        <span> ${event.date.split('|')[0]}</span>
+                        <span> ${event.location}</span>
                     </div>
                     <p class="dynamic-event-description">
                         ${this.getEventDescription(event.category)}
                     </p>
                     <div class="dynamic-event-footer">
                         <div class="dynamic-event-price ${event.isFree ? 'free' : 'paid'}">
-                            ${event.isFree ? '🎉 FREE' : `💰 ${event.price}`}
+                            ${event.isFree ? ' FREE' : ` ${event.price}`}
                         </div>
                         <a href="pages/${event.link}" class="dynamic-view-btn">
                             View Details →
