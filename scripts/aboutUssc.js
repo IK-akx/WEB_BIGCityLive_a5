@@ -75,3 +75,34 @@ $(document).ready(function() {
     }, 1500);
   });
 });
+
+
+$(document).ready(function() {
+  let counted = false;
+
+  $(window).on('scroll', function() {
+    const oTop = $('.stats-section').offset().top - window.innerHeight;
+
+    if (!counted && $(window).scrollTop() > oTop) {
+      $('.counter').each(function() {
+        const $this = $(this);
+        const countTo = parseInt($this.attr('data-count'));
+
+        $({ countNum: 0 }).animate(
+          { countNum: countTo },
+          {
+            duration: 2000,
+            easing: 'swing',
+            step: function() {
+              $this.text(Math.floor(this.countNum));
+            },
+            complete: function() {
+              $this.text(this.countNum + '+');
+            }
+          }
+        );
+      });
+      counted = true;
+    }
+  });
+});

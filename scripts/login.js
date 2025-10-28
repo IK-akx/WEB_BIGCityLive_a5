@@ -89,16 +89,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const submitBtn = form.querySelector('button[type="submit"]');
 
   form.addEventListener("submit", (e) => {
-    e.preventDefault(); // предотвращаем перезагрузку страницы
+    e.preventDefault();
 
-    // показываем спиннер и сообщение
+    // spiner
     submitBtn.disabled = true;
     submitBtn.innerHTML = `
       <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
       Please wait…
     `;
 
-    // имитируем задержку сервера (например 2 секунды)
     setTimeout(() => {
       submitBtn.disabled = false;
       submitBtn.innerHTML = "Login";
