@@ -77,3 +77,32 @@ greetBtn.addEventListener('click', () => {
 
   alert(message);
 });
+
+
+
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.querySelector("form");
+  const submitBtn = form.querySelector('button[type="submit"]');
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault(); 
+
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = `
+      <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+      Please wait…
+    `;
+
+    setTimeout(() => {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = "Login";
+    }, 2000);
+  });
+});
