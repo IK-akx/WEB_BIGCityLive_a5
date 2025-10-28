@@ -523,4 +523,31 @@ body.night-theme .card-text a {
 }
 
 
+.copy-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 8px;
+  font-size: 16px;
+  color: #555;
+  transition: 0.2s;
+}
 
+.copy-btn:hover {
+  color: #0078ff;
+}
+
+.tooltip {
+  margin-left: 10px;
+  font-size: 13px;
+  color: green;
+  opacity: 0.9;
+  position: relative;
+  top: -2px;
+  animation: fadeOut 2s forwards;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}

@@ -374,3 +374,76 @@ footer {
 .night-theme .about-hero p {
   color: #ccc;
 }
+
+/* Notification container */
+#toastContainer {
+  position: fixed !important;
+  right: 20px;
+  bottom: 20px;
+  width: auto;
+  height: auto;
+  z-index: 999999 !important;
+  pointer-events: auto; 
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+/* Toast */
+.toast {
+  display: inline-block;
+  min-width: 260px;
+  background: rgba(25, 135, 84, 0.95);
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(10px);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  pointer-events: auto;
+}
+
+.toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.toast.hide {
+  transform: translateY(10px);
+  opacity: 0;
+}
+
+
+/* Copy button */
+.copy-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 8px;
+  font-size: 16px;
+  color: #555;
+  transition: 0.2s;
+}
+
+.copy-btn:hover {
+  color: #0078ff;
+}
+
+.tooltip {
+  margin-left: 10px;
+  font-size: 13px;
+  color: green;
+  opacity: 0.9;
+  position: relative;
+  top: -2px;
+  animation: fadeOut 2s forwards;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}

@@ -1,3 +1,8 @@
+$(document).ready(function() {
+  console.log("jQuery is ready!");
+});
+
+
 // Bg color button
 // Find button by ID
 const colorButton = document.getElementById('changeColorBtn');
