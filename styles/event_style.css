@@ -905,3 +905,66 @@ footer {
   box-shadow: 0 0 10px rgba(0, 114, 255, 0.7);
   transition: width 0.1s ease-out;
 }
+
+/* ===== COMPLETE THEME STYLES FOR EVENTS PAGE ===== */
+
+/* Day theme for events page */
+.day-theme {
+    background: linear-gradient(135deg, #1e6fa8, #2d9ac2, #3bc0e6) !important;
+    color: white !important;
+}
+
+.day-theme .event-card {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.day-theme .event-title {
+    color: #fff !important;
+}
+
+.day-theme .event-description {
+    color: #f0f8ff !important;
+}
+
+/* Night theme for events page */
+.night-theme {
+    background: linear-gradient(135deg, #0a1535, #0e1e4d) !important;
+    color: #eaeaea !important;
+}
+
+.night-theme .event-card {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.night-theme .event-title {
+    color: #ffffff !important;
+}
+
+.night-theme .event-description {
+    color: #d0dcff !important;
+}
+
+/* Night mode button - FIXED POSITION */
+#themeToggleBtn {
+    position: fixed !important;
+    bottom: 30px !important;
+    left: 30px !important;
+    z-index: 10000 !important;
+    background: rgba(30, 111, 168, 0.9) !important;
+    color: white !important;
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    padding: 12px 20px !important;
+    border-radius: 30px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+    transition: all 0.3s ease !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+body.night-theme #themeToggleBtn {
+    background: rgba(255, 215, 0, 0.9) !important;
+    color: #021e40 !important;
+}
