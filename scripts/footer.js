@@ -14,7 +14,7 @@ $(document).ready(function() {
       // After 2 second: return 
       setTimeout(() => {
         $tooltip.fadeOut(400, function() { $(this).remove(); });
-        $btn.html('📋 Copy');
+        $btn.html('📋');
       }, 2000);
     });
   });
