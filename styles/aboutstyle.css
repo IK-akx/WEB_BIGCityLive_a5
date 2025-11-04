@@ -267,6 +267,50 @@ input:focus, textarea:focus {
 }
 
 
+/*------------------*/
+/* 🌙 Ночная тема */
+body.night-theme {
+  background-color: #021e40;
+  color: #f0f0f0;
+}
+
+body.night-theme .contact-section {
+  background: rgba(3, 32, 70, 0.95);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+body.night-theme .contact-section h2 {
+  color: #ffffff;
+}
+
+body.night-theme label {
+  color: #cce0ff;
+}
+
+body.night-theme input,
+body.night-theme textarea {
+  background-color: #052c5b;
+  color: #ffffff;
+  border: 1px solid #3a6fb0;
+}
+
+body.night-theme input::placeholder,
+body.night-theme textarea::placeholder {
+  color: #a5c0e0;
+}
+
+body.night-theme input:focus,
+body.night-theme textarea:focus {
+  border-color: #66b3ff;
+  outline: none;
+}
+
+body.night-theme .response-msg {
+  color: #a5c0e0;
+}
+
+
 /* Footer */
 footer {
   background: #f5f5f500;
@@ -447,15 +491,6 @@ footer {
   0% { opacity: 1; }
   100% { opacity: 0; }
 }
-
-
-
-
-
-
-
-
-
 
 
 

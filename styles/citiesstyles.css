@@ -233,7 +233,6 @@ footer {
 }
 
 
-/* === Общие стили тем === */
 body {
   transition: background-color 0.4s ease, color 0.4s ease;
 }
@@ -248,7 +247,6 @@ body {
   color: #eaeaea;
 }
 
-/* === Карточки, секции и контейнеры === */
 .night-theme .bg-light {
   background-color: #021e40 !important;
   color: #f8f9fa !important;
@@ -267,7 +265,6 @@ body {
   border-color: #333;
 }
 
-/* Плавная смена фона */
 .night-theme .container,
 .day-theme .container {
   transition: background-color 0.4s ease, color 0.4s ease;
