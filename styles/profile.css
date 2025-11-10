@@ -1,0 +1,427 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(to bottom, #ffffff00, #021e40), url('https://www.atomic-energy.ru/files/images/2023/11/1667557475_5-sportishka-com-p-astana-dostoprimechatelnosti-oboi-5.jpg') center/cover fixed;
+    transition: background 1s ease-in-out, color 0.5s;
+    color: #fff;
+    min-height: 100vh;
+}
+
+/* Night Theme */
+body.night-theme {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5), #000),
+                url('https://avatars.mds.yandex.net/i?id=84e6fc24431a2494c64ffe335ad98990_l-5288592-images-thumbs&n=13') center center / cover fixed;
+    color: #eaeaea;
+}
+
+/* Day Theme */
+body.day-theme {
+    background: linear-gradient(to bottom, #ffffff00, #021e40),
+                url('https://www.atomic-energy.ru/files/images/2023/11/1667557475_5-sportishka-com-p-astana-dostoprimechatelnosti-oboi-5.jpg') center center / cover fixed;
+    color: #021e40;
+}
+
+/* Navbar Styles (same as index) */
+.navbar.bg-primary {
+    background: rgba(30, 111, 168, 0.7) !important;
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    padding: 12px 20px !important;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.navbar .container {
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* Profile Container */
+.profile-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.profile-header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.profile-header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Profile Content Grid */
+.profile-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+/* Profile Cards */
+.profile-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.card-header {
+    background: linear-gradient(135deg, #1e6fa8, #2f78f7);
+    padding: 20px 30px;
+    color: white;
+}
+
+.card-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.card-body {
+    padding: 30px;
+}
+
+/* User Avatar */
+.user-avatar {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.user-avatar img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #1e6fa8;
+    margin-bottom: 15px;
+}
+
+.btn-change-photo {
+    background: #1e6fa8;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.btn-change-photo:hover {
+    background: #2f78f7;
+    transform: translateY(-2px);
+}
+
+/* User Info */
+.user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+.info-item label {
+    font-weight: 600;
+    color: #021e40;
+    min-width: 120px;
+}
+
+.info-item p {
+    margin: 0;
+    color: #666;
+    text-align: right;
+    flex: 1;
+}
+
+/* Password Field */
+.password-item .password-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+}
+
+#passwordDisplay {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px 10px;
+    background: #f9f9f9;
+    flex: 1;
+    font-family: monospace;
+}
+
+.btn-toggle-password {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.btn-toggle-password:hover {
+    background: #5a6268;
+}
+
+/* Tickets Section */
+.no-tickets {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666;
+}
+
+.no-tickets img {
+    margin-bottom: 20px;
+    opacity: 0.7;
+}
+
+.no-tickets h3 {
+    margin-bottom: 10px;
+    color: #021e40;
+}
+
+.no-tickets p {
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.btn-explore-events {
+    display: inline-block;
+    background: linear-gradient(135deg, #1e6fa8, #2f78f7);
+    color: white;
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-explore-events:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(30, 111, 168, 0.4);
+    color: white;
+}
+
+/* Theme Toggle Button */
+#themeToggleBtn {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 9999;
+    background: rgba(30, 111, 168, 0.8);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+#themeToggleBtn:hover {
+    background: #ffd700;
+    color: #021e40;
+    transform: translateY(-2px);
+}
+
+/* Night Theme Styles */
+body.night-theme .profile-card {
+    background: rgba(30, 30, 50, 0.95);
+    color: white;
+}
+
+body.night-theme .card-header {
+    background: linear-gradient(135deg, #162447, #1f4068);
+}
+
+body.night-theme .info-item label {
+    color: #a8cfff;
+}
+
+body.night-theme .info-item p {
+    color: #d0dcff;
+}
+
+body.night-theme .no-tickets {
+    color: #a8cfff;
+}
+
+body.night-theme .no-tickets h3 {
+    color: white;
+}
+
+body.night-theme #passwordDisplay {
+    background: #2d3748;
+    border-color: #4a5568;
+    color: white;
+}
+
+body.night-theme .info-item {
+    border-bottom-color: rgba(255,255,255,0.1);
+}
+
+/* Footer Styles (same as index) */
+footer {
+    background: #f5f5f500;
+    padding: 40px 20px;
+    margin-top: 60px;
+    color: #ffffff;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-logo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.footer-logo p {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #2f78f7;
+}
+
+.footer-info h3,
+.footer-social h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.footer-info p {
+    margin-bottom: 6px;
+    color: #ffffff;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #34495e;
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.social-links a:hover {
+    background-color: #e74c3c;
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+/* Scroll Progress Bar */
+#scrollProgress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 6px;
+    width: 0%;
+    background: linear-gradient(90deg, #00c6ff, #0072ff, #00ff88);
+    border-radius: 5px;
+    z-index: 9999;
+    box-shadow: 0 0 10px rgba(0, 114, 255, 0.7);
+    transition: width 0.1s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+    .profile-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .profile-header h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 575px) {
+    .profile-container {
+        margin: 20px auto;
+        padding: 0 15px;
+    }
+    
+    .profile-header h1 {
+        font-size: 2rem;
+    }
+    
+    .card-body {
+        padding: 20px;
+    }
+    
+    .info-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .info-item p {
+        text-align: left;
+    }
+    
+    .password-field {
+        width: 100%;
+    }
+}
