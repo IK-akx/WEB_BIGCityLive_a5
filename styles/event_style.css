@@ -7,9 +7,10 @@
 }
 
 body {
-    background: linear-gradient(135deg, #1e6fa8, #2d9ac2, #3bc0e6);
-    color: white;
-    line-height: 1.5;
+    background: linear-gradient(to bottom, #ffffff00, #021e40), 
+                url('https://www.atomic-energy.ru/files/images/2023/11/1667557475_5-sportishka-com-p-astana-dostoprimechatelnosti-oboi-5.jpg') center/cover fixed; 
+    transition: background 1s ease-in-out, color 0.5s;
+    color: #fff;
 }
 
 .container {
@@ -41,13 +42,34 @@ body {
   font-size: 1.25rem;
 }
 
+/* ===== LOG OUT BUTTON STYLES ===== */
+.logoutBtn {
+    background-color: #ffffff !important;
+    color: #1e6fa8 !important;
+    border: 2px solid #1e6fa8 !important;
+    font-weight: bold !important;
+    padding: 6px 16px !important;
+    border-radius: 6px !important;
+    transition: all 0.3s ease !important;
+    text-shadow: none !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+.logoutBtn:hover {
+    background-color: #1e6fa8 !important;
+    color: #ffffff !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    border-color: #1e6fa8 !important;
+}
+
 .navbar-nav .nav-link {
   font-weight: 500;
   margin: 0 5px;
   border-radius: 5px;
   transition: all 0.3s ease;
+  color: #ffffff !important; /* Ensure all nav links are visible */
 }
-
 .navbar-nav .nav-link:hover {
   background-color: rgba(255,255,255,0.1);
   transform: translateY(-1px);
@@ -90,15 +112,14 @@ body {
     margin-bottom: 50px;
 }
 
+/* Quick visibility fix - add this first */
 .event-card {
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 15px;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.8) !important;
+    border: 2px solid rgba(255, 215, 0, 0.3) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
 }
+
+
 
 .event-card:hover {
     transform: translateY(-10px) scale(1.02);
@@ -892,8 +913,9 @@ footer {
 
 /* Day theme for events page */
 .day-theme {
-    background: linear-gradient(135deg, #1e6fa8, #2d9ac2, #3bc0e6) !important;
-    color: white !important;
+    background: linear-gradient(to bottom, #ffffff00, #021e40),
+                url('https://www.atomic-energy.ru/files/images/2023/11/1667557475_5-sportishka-com-p-astana-dostoprimechatelnosti-oboi-5.jpg') center center / cover fixed !important;
+    color: #021e40 !important;
 }
 
 .day-theme .event-card {
@@ -911,7 +933,8 @@ footer {
 
 /* Night theme for events page */
 .night-theme {
-    background: linear-gradient(135deg, #0a1535, #0e1e4d) !important;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5), #000),
+                url('https://avatars.mds.yandex.net/i?id=84e6fc24431a2494c64ffe335ad98990_l-5288592-images-thumbs&n=13') center center / cover fixed !important;
     color: #eaeaea !important;
 }
 
