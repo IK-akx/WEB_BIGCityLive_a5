@@ -14,52 +14,56 @@
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="../index.html">
-        <img src="../images/logo.png" alt="Logo" width="40" height="40" class="rounded-circle me-2">
-        <span class="fw-bold">BIG CITY LIVE</span>
-      </a>
-    
-      <div class="d-lg-flex flex-grow-1">
-        <ul class="navbar-nav me-auto d-none d-lg-flex">
-          <li class="nav-item">
-            <a class="nav-link" href="../index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="events.html">Events</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="cities.html">Places</a>
-          </li>
-        </ul>
+  <!-- Main Content -->
+  <div class="main-content">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="../index.html">
+          <img src="../images/logo.png" alt="Logo" width="40" height="40" class="rounded-circle me-2">
+          <span class="fw-bold">BIG CITY LIVE</span>
+        </a>
         
-        <div class="navbar-nav ms-auto d-none d-lg-flex">
-          <a class="nav-link btn btn-outline-light me-2" href="login.html">Sign In</a>
-          <a class="nav-link btn btn-warning text-dark" href="signup.html">Sign Up</a>
+        <!-- Simple responsive menu without toggle functionality -->
+        <div class="d-lg-flex flex-grow-1">
+          <ul class="navbar-nav me-auto d-none d-lg-flex">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../pages/events.html">Events</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../pages/about.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="../pages/cities.html">Places</a>
+            </li>
+          </ul>
+          
+          <div class="navbar-nav ms-auto d-none d-lg-flex" id="desktopNavActions">
+            <!-- This will be populated by JavaScript -->
+            <a class="nav-link btn btn-outline-light me-2" href="../pages/login.html">Sign In</a>
+            <a class="nav-link btn btn-warning text-dark" href="../pages/signup.html">Sign Up</a>
+          </div>
         </div>
-      </div>
 
-       <!-- Mobile menu (simple dropdown without JS) -->
+        <!-- Mobile menu (simple dropdown without JS) -->
         <div class="d-lg-none">
-          <select class="form-select bg-dark text-white border-0" onchange="window.location.href=this.value">
+          <select class="form-select bg-dark text-white border-0" id="mobileMenuSelect">
             <option value="../index.html" selected>Home</option>
             <option value="../pages/events.html">Events</option>
             <option value="../pages/about.html">About Us</option>
             <option value="../pages/cities.html">Places</option>
             <option disabled>---</option>
-            <option value="../pages/login.html">Sign In</option>
-            <option value="signup.html">Sign Up</option>
+            <!-- <option value="../pages/login.html">Sign In</option>
+            <option value="../pages/signup.html">Sign Up</option> -->
           </select>
 
           <!-- Mobile user area -->
           <div id="mobileNavActions" class="mt-2 text-center"></div>
         </div>
-    </div>
-  </nav>
+      </div>
+    </nav>
 
     <main class="container">
         <a href="events.html" class="back-link">&larr; Back to Events</a>
