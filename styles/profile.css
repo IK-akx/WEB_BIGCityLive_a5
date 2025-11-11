@@ -457,6 +457,7 @@ footer {
 .ticket-image {
     position: relative;
     margin-right: 1rem;
+    flex-shrink: 0;
 }
 
 .ticket-image img {
@@ -480,17 +481,21 @@ footer {
 
 .ticket-info {
     flex: 1;
+    min-width: 0; /* Важно для обрезки длинного текста */
 }
 
 .ticket-info h4 {
     margin: 0 0 0.5rem 0;
     color: #333;
+    font-size: 1.1rem;
+    word-wrap: break-word;
 }
 
 .ticket-info p {
     margin: 0.25rem 0;
     font-size: 0.9rem;
     color: #666;
+    line-height: 1.3;
 }
 
 .ticket-actions {
@@ -498,14 +503,17 @@ footer {
     flex-direction: column;
     gap: 0.5rem;
     min-width: 120px;
+    justify-content: center;
 }
 
 .btn-download, .btn-cancel {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.75rem;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    transition: all 0.2s ease;
 }
 
 .btn-download {
@@ -513,14 +521,144 @@ footer {
     color: white;
 }
 
+.btn-download:hover {
+    background: #0056b3;
+}
+
 .btn-cancel {
     background: #dc3545;
     color: white;
 }
 
+.btn-cancel:hover {
+    background: #c82333;
+}
+
 .cancelled-text {
     color: #dc3545;
     font-style: italic;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+/* 📱 МОБИЛЬНАЯ АДАПТАЦИЯ */
+@media (max-width: 768px) {
+    .ticket-item {
+        flex-direction: column;
+        padding: 0.75rem;
+        gap: 0.75rem;
+    }
+
+    .ticket-image {
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .ticket-image img {
+        width: 100%;
+        max-width: 200px;
+        height: 120px;
+    }
+
+    .ticket-info h4 {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .ticket-info p {
+        font-size: 0.8rem;
+        text-align: center;
+    }
+
+    .ticket-actions {
+        flex-direction: row;
+        min-width: auto;
+        justify-content: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    .btn-download, .btn-cancel {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.8rem;
+        flex: 1;
+        min-width: 120px;
+        max-width: 140px;
+    }
+
+    .cancelled-text {
+        text-align: center;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .ticket-item {
+        padding: 0.5rem;
+        gap: 0.5rem;
+    }
+
+    .ticket-image img {
+        height: 100px;
+    }
+
+    .ticket-info h4 {
+        font-size: 0.95rem;
+    }
+
+    .ticket-info p {
+        font-size: 0.75rem;
+    }
+
+    .btn-download, .btn-cancel {
+        padding: 0.35rem 0.5rem;
+        font-size: 0.75rem;
+        min-width: 110px;
+    }
+
+    .ticket-actions {
+        gap: 0.3rem;
+    }
+}
+
+/* Еще более компактный вариант для очень маленьких экранов */
+@media (max-width: 360px) {
+    .ticket-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn-download, .btn-cancel {
+        min-width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* Стили для загрузки и ошибок */
+.loading-tickets {
+    text-align: center;
+    padding: 2rem;
+}
+
+.api-error {
+    text-align: center;
+    padding: 2rem;
+}
+
+.btn-retry {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.error-help {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 0.5rem;
 }
 
 /* Стили для загрузки и ошибок */
