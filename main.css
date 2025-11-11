@@ -574,7 +574,7 @@ body.night-theme .card-text a {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-left: auto; /* Выравнивание вправо */
+  margin-left: auto;
   padding: 0 15px;
 }
 
@@ -614,13 +614,13 @@ body.night-theme .card-text a {
   transform: translateY(-1px);
 }
 
-/* Адаптивность для планшетов */
+/* For tablet */
 @media (max-width: 992px) {
   .search-container {
     margin-left: 0;
     width: 100%;
     justify-content: center;
-    order: 3; /* Если используете flex order */
+    order: 3;
     margin-top: 15px;
   }
   
@@ -631,7 +631,7 @@ body.night-theme .card-text a {
   }
 }
 
-/* Адаптивность для мобильных телефонов */
+/* Mobile phone */
 @media (max-width: 768px) {
   .search-container {
     flex-direction: column;
@@ -652,7 +652,7 @@ body.night-theme .card-text a {
   }
 }
 
-/* Для очень маленьких экранов */
+/* For a very little screen */
 @media (max-width: 480px) {
   .search-container {
     padding: 0 5px;
@@ -664,7 +664,7 @@ body.night-theme .card-text a {
   }
 }
 
-/* Ночная тема */
+/* Night teme */
 .night-theme #globalSearch {
   background: rgba(40, 40, 60, 0.9);
   color: #eaeaea;
