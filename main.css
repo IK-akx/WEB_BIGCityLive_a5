@@ -566,3 +566,119 @@ body.night-theme .card-text a {
   box-shadow: 0 0 10px rgba(0, 114, 255, 0.7);
   transition: width 0.1s ease-out;
 }
+
+
+/* Search Container */
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto; /* Выравнивание вправо */
+  padding: 0 15px;
+}
+
+/* Search Input */
+#globalSearch {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 250px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+#globalSearch:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* Search Button */
+#highlightBtn {
+  padding: 8px 16px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+#highlightBtn:hover {
+  background: #0056b3;
+  transform: translateY(-1px);
+}
+
+/* Адаптивность для планшетов */
+@media (max-width: 992px) {
+  .search-container {
+    margin-left: 0;
+    width: 100%;
+    justify-content: center;
+    order: 3; /* Если используете flex order */
+    margin-top: 15px;
+  }
+  
+  #globalSearch {
+    width: 200px;
+    flex: 1;
+    max-width: 400px;
+  }
+}
+
+/* Адаптивность для мобильных телефонов */
+@media (max-width: 768px) {
+  .search-container {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+    padding: 0 10px;
+  }
+  
+  #globalSearch {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 0;
+  }
+  
+  #highlightBtn {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 480px) {
+  .search-container {
+    padding: 0 5px;
+  }
+  
+  #globalSearch {
+    padding: 10px 12px;
+    font-size: 16px;
+  }
+}
+
+/* Ночная тема */
+.night-theme #globalSearch {
+  background: rgba(40, 40, 60, 0.9);
+  color: #eaeaea;
+  border-color: #555;
+}
+
+.night-theme #globalSearch::placeholder {
+  color: #aaa;
+}
+
+.night-theme #highlightBtn {
+  background: #1e6fa8;
+}
+
+.night-theme #highlightBtn:hover {
+  background: #155d8a;
+}

@@ -84,7 +84,6 @@ document.addEventListener("DOMContentLoaded", function() {
             `;
         }
 
-        // Добавляем hover эффекты через CSS
         addProfileLinkStyles();
 
         document.querySelectorAll(".logoutBtn").forEach(btn => {
@@ -94,17 +93,15 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
 
-        // Добавляем обработчики для профиля (опционально)
         document.querySelectorAll('.profile-link').forEach(link => {
             link.addEventListener('click', function(e) {
-                // Можно добавить дополнительную логику здесь
                 console.log('Navigating to profile...');
             });
         });
     } 
 });
 
-// Функция для добавления стилей hover
+
 function addProfileLinkStyles() {
     const style = document.createElement('style');
     style.textContent = `
