@@ -3,12 +3,10 @@ const errorBox = document.getElementById('error-message');
 const resetBtn = document.getElementById('resetBtn');
 const inputs = document.querySelectorAll('input');
 
-// Функция для получения всех пользователей из localStorage
 function getUsers() {
     return JSON.parse(localStorage.getItem('users')) || [];
 }
 
-// Функция для аутентификации пользователя
 function authenticateUser(username, password) {
     const users = getUsers();
     return users.find(user => user.username === username && user.password === password);
@@ -24,7 +22,6 @@ form.addEventListener('submit', (e) => {
     let message = '';
     let isError = false;
 
-    // Сброс стилей ошибок
     inputs.forEach(input => input.classList.remove('is-invalid'));
 
     if (!username) {
@@ -46,11 +43,11 @@ form.addEventListener('submit', (e) => {
         return;
     }
 
-    // Попытка аутентификации
+    // Auth try
     const user = authenticateUser(username, password);
     
     if (user) {
-        // Сохраняем информацию о текущем пользователе
+        // Save info about current user
         localStorage.setItem('currentUser', JSON.stringify({
             id: user.id, 
             username: user.username,
@@ -68,7 +65,6 @@ form.addEventListener('submit', (e) => {
     }
 });
 
-// Остальной код (resetBtn, showMessage, greetBtn) остается таким же
 resetBtn.addEventListener('click', () => {
     inputs.forEach(i => i.value = '');
     inputs.forEach(input => input.classList.remove('is-invalid'));
@@ -80,7 +76,7 @@ function showMessage(text, type) {
     errorBox.className = type === 'danger' ? 'text-danger' : 'text-success';
 }
 
-// Greeting button logic (остается без изменений)
+// Greeting button logic
 const greetBtn = document.getElementById('greetBtn');
 greetBtn.addEventListener('click', () => {
     const hour = new Date().getHours();
@@ -109,7 +105,7 @@ greetBtn.addEventListener('click', () => {
     alert(message);
 });
 
-// Spinner logic (остается без изменений)
+// Spinner logic 
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector("form");
     const submitBtn = form.querySelector('button[type="submit"]');

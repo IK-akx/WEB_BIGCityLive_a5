@@ -2,61 +2,51 @@ const form = document.getElementById('signupForm');
 const errorBox = document.getElementById('error-message');
 const resetBtn = document.getElementById('resetBtn');
 
-// Функция для получения всех пользователей из localStorage
 function getUsers() {
     return JSON.parse(localStorage.getItem('users')) || [];
 }
 
-// Функция для сохранения пользователей в localStorage
 function saveUsers(users) {
     localStorage.setItem('users', JSON.stringify(users));
 }
 
-// Функция для проверки, существует ли пользователь
 function userExists(username, email) {
     const users = getUsers();
     return users.find(user => user.username === username || user.email === email);
 }
 
-// Функция для валидации email
 function isValidEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
 }
 
-// Функция для валидации пароля
 function isValidPassword(password) {
     return password.length >= 6;
 }
 
-// Функция для полной очистки ошибок поля
 function clearFieldError(fieldId) {
     const field = document.getElementById(fieldId);
     const feedback = field.nextElementSibling;
     
     field.classList.remove('is-invalid');
     
-    // Скрываем сообщение об ошибке
     if (feedback && feedback.classList.contains('invalid-feedback')) {
         feedback.style.display = 'none';
     }
 }
 
-// Функция для показа ошибки поля
 function showFieldError(fieldId, message) {
     const field = document.getElementById(fieldId);
     const feedback = field.nextElementSibling;
     
     field.classList.add('is-invalid');
     
-    // Показываем сообщение об ошибке
     if (feedback && feedback.classList.contains('invalid-feedback')) {
         feedback.textContent = message;
         feedback.style.display = 'block';
     }
 }
 
-// Функция для real-time валидации
 function setupRealTimeValidation() {
     const fields = ['fullName', 'email', 'username', 'password', 'confirmPassword'];
     
@@ -73,12 +63,10 @@ function setupRealTimeValidation() {
     });
 }
 
-// Функция для валидации отдельного поля
 function validateField(fieldId) {
     const field = document.getElementById(fieldId);
     const value = field.value.trim();
     
-    // Сначала очищаем ошибку
     clearFieldError(fieldId);
     
     let isValid = true;
@@ -138,7 +126,6 @@ function validateField(fieldId) {
     return isValid;
 }
 
-// Основная функция валидации формы
 function validateForm() {
     const fields = [
         'fullName',
@@ -169,27 +156,23 @@ form.addEventListener('submit', (e) => {
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirmPassword').value;
 
-    // Очищаем общее сообщение об ошибке
     showMessage('', '');
 
-    // Валидация формы
     if (!validateForm()) {
         showMessage('Please fix the errors above.', 'danger');
         return;
     }
 
-    // Проверка существующего пользователя
     if (userExists(username, email)) {
         showMessage('Username or email already exists.', 'danger');
         return;
     }
 
-    // В функции создания пользователя (в signup.js)
     function generateUserId() {
         return 'user_' + Math.random().toString(36).substr(2, 9);
     }
 
-    // Создание нового пользователя
+    // Creat new user
     const newUser = {
         id: generateUserId(),
         fullName,
@@ -199,24 +182,20 @@ form.addEventListener('submit', (e) => {
         createdAt: new Date().toISOString()
     };
 
-    // Сохранение пользователя
     const users = getUsers();
     users.push(newUser);
     saveUsers(users);
 
     showMessage('Account created successfully! Redirecting to login...', 'success');
 
-    // Редирект на страницу входа
     setTimeout(() => {
         window.location.href = 'login.html';
     }, 2000);
 });
 
-// Кнопка сброса формы
 resetBtn.addEventListener('click', () => {
     form.reset();
     
-    // Полностью очищаем все ошибки
     const inputs = form.querySelectorAll('input');
     inputs.forEach(input => {
         const fieldId = input.id;
@@ -232,7 +211,7 @@ function showMessage(text, type) {
     errorBox.style.display = text ? 'block' : 'none';
 }
 
-// Special real-time validation для confirmPassword
+// Special real-time validation for confirmPassword
 document.getElementById('password').addEventListener('input', function() {
     const confirmPassword = document.getElementById('confirmPassword');
     if (confirmPassword.value) {
@@ -246,7 +225,6 @@ document.getElementById('confirmPassword').addEventListener('input', function() 
     }
 });
 
-// Инициализация real-time валидации
 setupRealTimeValidation();
 
 // Spinner for submit button

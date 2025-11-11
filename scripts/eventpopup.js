@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Get event ID from the page (from URL or data attribute)
     function getEventIdFromPage() {
-        // Try to get from URL (details1.html -> ID 1, details2.html -> ID 2, etc.)
         const pathname = window.location.pathname;
         const filename = pathname.split('/').pop();
         
@@ -27,7 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
             return parseInt(eventElement.getAttribute('data-event-id'));
         }
         
-        // Default fallback
         return 1;
     }
 
@@ -70,17 +68,16 @@ document.addEventListener("DOMContentLoaded", () => {
         form.addEventListener("submit", async (e) => {
             e.preventDefault();
             
-            console.log('🎯 Form submit triggered'); // ДОБАВЬТЕ ЭТО
+            console.log('🎯 Form submit triggered');
 
             try {
-                // ✅ ИСПОЛЬЗУЙТЕ НОВЫЕ ID
                 const name = document.getElementById("userName")?.value?.trim() || "";
                 const email = document.getElementById("userEmail")?.value?.trim() || "";
 
-                console.log('📝 Form data:', { name, email }); // ДОБАВЬТЕ ЭТО
+                console.log('📝 Form data:', { name, email });
 
                 if (!name || !email) {
-                    console.log('❌ Form validation failed'); // ДОБАВЬТЕ ЭТО
+                    console.log('❌ Form validation failed');
                     animateFormError();
                     alert("Please fill in all fields.");
                     return;
@@ -88,22 +85,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 // Check if user is logged in
                 const currentUserData = localStorage.getItem('currentUser');
-                console.log('👤 Current user data:', currentUserData); // ДОБАВЬТЕ ЭТО
+                console.log('👤 Current user data:', currentUserData);
                 
                 if (!currentUserData) {
-                    console.log('❌ User not logged in'); // ДОБАВЬТЕ ЭТО
+                    console.log('❌ User not logged in');
                     animateFormError();
                     alert("Please login to purchase tickets.");
                     window.location.href = "login.html";
                     return;
                 }
 
-                // Проверяем, что у пользователя есть user-id
                 const currentUser = JSON.parse(currentUserData);
-                console.log('🆔 User ID:', currentUser.id); // ДОБАВЬТЕ ЭТО
+                console.log('🆔 User ID:', currentUser.id); 
                 
                 if (!currentUser.id) {
-                    console.log('❌ User ID not found'); // ДОБАВЬТЕ ЭТО
+                    console.log('❌ User ID not found'); 
                     animateFormError();
                     alert("User ID not found. Please login again.");
                     window.location.href = "login.html";
@@ -121,13 +117,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     };
                 }
 
-                console.log('🎫 Purchasing ticket for event:', currentEvent); // ДОБАВЬТЕ ЭТО
+                console.log('🎫 Purchasing ticket for event:', currentEvent);
 
                 // Purchase ticket via API
                 await purchaseTicketWithAPI(name, email);
                 
             } catch (error) {
-                console.error('💥 Form submission error:', error); // ДОБАВЬТЕ ЭТО
+                console.error('💥 Form submission error:', error);
                 alert("Form error: " + error.message);
             }
         });
@@ -177,12 +173,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 300);
     }
 
-    // ✅ API TICKET PURCHASE FUNCTION - ИЗМЕНЕНА!
     async function purchaseTicketWithAPI(name, email) {
         const submitBtn = form.querySelector('.buy-btn');
         const originalText = submitBtn.textContent;
         
-        console.log('🔄 Starting ticket purchase...'); // ДОБАВЬТЕ ЭТО
+        console.log('🔄 Starting ticket purchase...'); 
         
         try {
             // Show loading state
@@ -191,18 +186,18 @@ document.addEventListener("DOMContentLoaded", () => {
             submitBtn.textContent = 'Processing...';
             submitBtn.disabled = true;
 
-            console.log('🎯 Calling realEventAPI.buyTicket...'); // ДОБАВЬТЕ ЭТО
+            console.log('🎯 Calling realEventAPI.buyTicket...'); 
 
             // Purchase ticket via API
             const result = await realEventAPI.buyTicket(currentEvent.id, 1);
             
-            console.log('✅ Purchase successful:', result); // ДОБАВЬТЕ ЭТО
+            console.log('✅ Purchase successful:', result); 
             
             // Success animation
             animatePurchaseSuccess(name, result);
             
         } catch (error) {
-            console.error('❌ Purchase error:', error); // ДОБАВЬТЕ ЭТО
+            console.error('❌ Purchase error:', error); 
             // Error handling
             animatePurchaseError(error.message);
         } finally {
@@ -291,7 +286,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 400);
     }
 
-    // ✅ FORM ANIMATION FUNCTIONS
+    // FORM ANIMATION FUNCTIONS
     function animateFormError() {
         const inputs = form.querySelectorAll('input');
         let shakeCount = 0;
@@ -327,7 +322,7 @@ document.addEventListener("DOMContentLoaded", () => {
         shake();
     }
 
-    // ✅ CONFETTI EFFECT FOR SUCCESS
+    // CONFETTI EFFECT FOR SUCCESS
     function createConfetti() {
         const confettiContainer = document.createElement('div');
         confettiContainer.style.cssText = `
@@ -379,7 +374,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return colors[Math.floor(Math.random() * colors.length)];
     }
 
-    // ✅ INPUT FOCUS ANIMATIONS
+    // INPUT FOCUS ANIMATIONS
     if (form) {
         const inputs = form.querySelectorAll('input');
         inputs.forEach(input => {
@@ -395,7 +390,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // ✅ BUTTON HOVER ANIMATIONS
+    // BUTTON HOVER ANIMATIONS
     if (form) {
         const buttons = form.querySelectorAll('button');
         buttons.forEach(button => {

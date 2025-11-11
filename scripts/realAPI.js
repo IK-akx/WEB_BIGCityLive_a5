@@ -1,7 +1,7 @@
 // scripts/realApi.js
 class RealEventAPI {
     constructor() {
-        this.baseURL = 'http://localhost:3001'; // Твой локальный API
+        this.baseURL = 'http://localhost:3001'; 
     }
 
     async getEvents(page = 1, limit = 6, category = 'all') {
@@ -16,7 +16,7 @@ class RealEventAPI {
             const data = await response.json();
             
             if (data.success) {
-                return data.data; // возвращаем массив мероприятий
+                return data.data; 
             } else {
                 throw new Error(data.error || 'Unknown API error');
             }
@@ -26,7 +26,7 @@ class RealEventAPI {
         }
     }
 
-    async getUserTickets() { // УБРАЛИ ПАРАМЕТР userId
+    async getUserTickets() { 
         try {
             const currentUserData = localStorage.getItem('currentUser');
             if (!currentUserData) {
@@ -34,7 +34,7 @@ class RealEventAPI {
             }
             
             const currentUser = JSON.parse(currentUserData);
-            const userId = currentUser.id; // БЕРЕМ user-id ИЗ LOCALSTORAGE
+            const userId = currentUser.id; // Take user-id from LOCALSTORAGE
             
             if (!userId) {
                 throw new Error('User ID not found. Please login again.');
@@ -53,7 +53,7 @@ class RealEventAPI {
             const data = await response.json();
             
             if (data.success) {
-                return data.data; // возвращаем массив билетов
+                return data.data; 
             } else {
                 throw new Error(data.error || 'Unknown API error');
             }
@@ -63,7 +63,7 @@ class RealEventAPI {
         }
     }
 
-    async buyTicket(eventId, quantity = 1) { // УБРАЛИ ПАРАМЕТР userId
+    async buyTicket(eventId, quantity = 1) { 
         try {
             const currentUserData = localStorage.getItem('currentUser');
             if (!currentUserData) {
@@ -71,7 +71,7 @@ class RealEventAPI {
             }
             
             const currentUser = JSON.parse(currentUserData);
-            const userId = currentUser.id; // БЕРЕМ user-id ИЗ LOCALSTORAGE
+            const userId = currentUser.id; 
             
             if (!userId) {
                 throw new Error('User ID not found. Please login again.');
@@ -96,7 +96,7 @@ class RealEventAPI {
             const data = await response.json();
             
             if (data.success) {
-                return data.data; // возвращаем информацию о покупке
+                return data.data; 
             } else {
                 throw new Error(data.error || 'Unknown API error');
             }
@@ -106,7 +106,7 @@ class RealEventAPI {
         }
     }
 
-    async cancelTicket(ticketId) { // УБРАЛИ ПАРАМЕТР userId
+    async cancelTicket(ticketId) { 
         try {
             const currentUserData = localStorage.getItem('currentUser');
             if (!currentUserData) {
@@ -114,7 +114,7 @@ class RealEventAPI {
             }
             
             const currentUser = JSON.parse(currentUserData);
-            const userId = currentUser.id; // БЕРЕМ user-id ИЗ LOCALSTORAGE
+            const userId = currentUser.id;
             
             if (!userId) {
                 throw new Error('User ID not found. Please login again.');
@@ -134,7 +134,7 @@ class RealEventAPI {
             const data = await response.json();
             
             if (data.success) {
-                return data.data; // возвращаем информацию об отмене
+                return data.data;
             } else {
                 throw new Error(data.error || 'Unknown API error');
             }
@@ -156,7 +156,6 @@ class RealEventAPI {
         }
     }
 
-    // НОВЫЙ МЕТОД: Получить user-id текущего пользователя
     getCurrentUserId() {
         const currentUserData = localStorage.getItem('currentUser');
         if (!currentUserData) {
@@ -167,11 +166,10 @@ class RealEventAPI {
         return currentUser.id;
     }
 
-    // НОВЫЙ МЕТОД: Проверить, залогинен ли пользователь
     isUserLoggedIn() {
         return this.getCurrentUserId() !== null;
     }
 }
 
-// Создаем глобальный экземпляр
+// Creat global one 
 window.realEventAPI = new RealEventAPI();

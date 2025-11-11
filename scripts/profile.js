@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", function() {
     setupHeader();
 });
 
-// В scripts/profile.js - замени функцию loadUserTickets
 async function loadUserTickets() {
     const currentUserData = localStorage.getItem('currentUser');
     if (!currentUserData) return;
@@ -12,7 +11,7 @@ async function loadUserTickets() {
     const currentUser = JSON.parse(currentUserData);
     
     try {
-        // Показываем загрузку
+        // Loading
         document.getElementById('ticketsContainer').innerHTML = `
             <div class="loading-tickets">
                 <div class="spinner-border text-primary" role="status">
@@ -22,13 +21,13 @@ async function loadUserTickets() {
             </div>
         `;
 
-        // Проверяем доступность API
+        // Chech the API
         const isApiHealthy = await realEventAPI.healthCheck();
         if (!isApiHealthy) {
             throw new Error('API server is not running');
         }
 
-        // Получаем билеты через РЕАЛЬНЫЙ API
+        // Get tickets by Real API
         const tickets = await realEventAPI.getUserTickets();
         
         displayTickets(tickets);
@@ -137,7 +136,6 @@ document.querySelector('.btn-change-photo')?.addEventListener('click', changePro
 
 
 
-// ✅ ДОБАВЬТЕ ЭТУ ФУНКЦИЮ - она отсутствует!
 function loadUserProfile() {
     const currentUserData = localStorage.getItem('currentUser');
     if (!currentUserData) {
@@ -147,13 +145,12 @@ function loadUserProfile() {
 
     const currentUser = JSON.parse(currentUserData);
     
-    // Заполняем данные пользователя
+    // Info about users
     document.getElementById('userFullName').textContent = currentUser.fullName || 'Not set';
     document.getElementById('userUsername').textContent = currentUser.username || 'Not set';
     document.getElementById('userEmail').textContent = currentUser.email || 'Not set';
     document.getElementById('userCity').textContent = currentUser.city || 'Astana';
     
-    // Форматируем дату регистрации
     if (currentUser.createdAt) {
         const memberSince = new Date(currentUser.createdAt).toLocaleDateString('en-US', {
             year: 'numeric',
@@ -166,7 +163,6 @@ function loadUserProfile() {
     }
 }
 
-// ✅ ДОБАВЬТЕ ЭТУ ФУНКЦИЮ - она отсутствует!
 function displayTickets(tickets) {
     const ticketsContainer = document.getElementById('ticketsContainer');
     
@@ -182,7 +178,6 @@ function displayTickets(tickets) {
         return;
     }
 
-    // Сортируем билеты по дате покупки (новые сначала)
     tickets.sort((a, b) => new Date(b.purchaseDate) - new Date(a.purchaseDate));
     
     ticketsContainer.innerHTML = `
@@ -204,7 +199,6 @@ function displayTickets(tickets) {
                     </div>
                     <div class="ticket-actions">
                         ${ticket.status !== 'cancelled' ? `
-                            <button class="btn-download" onclick="downloadTicket('${ticket.id}')">Download PDF</button>
                             <button class="btn-cancel" onclick="cancelTicket('${ticket.id}')">Cancel Ticket</button>
                         ` : `
                             <p class="cancelled-text">Cancelled on ${new Date(ticket.cancellationDate).toLocaleDateString()}</p>
@@ -216,7 +210,6 @@ function displayTickets(tickets) {
     `;
 }
 
-// ✅ ДОБАВЬТЕ ЭТИ ФУНКЦИИ ДЛЯ ДЕЙСТВИЙ С БИЛЕТАМИ
 async function cancelTicket(ticketId) {
     if (!confirm('Are you sure you want to cancel this ticket?')) {
         return;
@@ -225,13 +218,15 @@ async function cancelTicket(ticketId) {
     try {
         await realEventAPI.cancelTicket(ticketId);
         alert('Ticket cancelled successfully!');
-        loadUserTickets(); // Перезагружаем билеты
+        loadUserTickets(); // Reload tickets
     } catch (error) {
         alert('Error cancelling ticket: ' + error.message);
     }
 }
 
 function downloadTicket(ticketId) {
-    // Заглушка для скачивания билета
     alert('Download functionality will be implemented soon! Ticket ID: ' + ticketId);
 }
+
+
+//<button class="btn-download" onclick="downloadTicket('${ticket.id}')">Download PDF</button>

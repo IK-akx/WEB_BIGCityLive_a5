@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const isHidden = extraText.style.display === "none";
 
       extraText.style.display = isHidden ? "block" : "none";
-      e.target.textContent = isHidden ? "Read Less" : "Read More";
+      e.target.textContent = isHidden ? "Less" : "Read More";
     });
   });
 });
