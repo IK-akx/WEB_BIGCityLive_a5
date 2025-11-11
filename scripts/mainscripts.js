@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (!container) return;
         container.innerHTML = `
             <div class="d-flex align-items-center justify-content-center">
-                <a href="../pages/profile.html" class="d-flex align-items-center text-decoration-none text-light me-3 profile-link">
+                <a href="pages/profile.html" class="d-flex align-items-center text-decoration-none text-light me-3 profile-link">
                     <img src="${currentUser.profileImage || 'https://www.manageengine.com/images/speaker-placeholder.png'}" 
                          alt="Profile" 
                          width="40" 
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function() {
             mobileNavActions.innerHTML = `
                 <div>
                     <div class="d-flex align-items-center justify-content-center">
-                        <a href="../pages/profile.html" class="d-flex align-items-center text-decoration-none text-light me-3 profile-link">
+                        <a href="pages/profile.html" class="d-flex align-items-center text-decoration-none text-light me-3 profile-link">
                             <img src="${currentUser.profileImage || 'https://www.manageengine.com/images/speaker-placeholder.png'}" 
                                  alt="Profile" 
                                  width="34" 
