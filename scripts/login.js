@@ -52,6 +52,7 @@ form.addEventListener('submit', (e) => {
     if (user) {
         // Сохраняем информацию о текущем пользователе
         localStorage.setItem('currentUser', JSON.stringify({
+            id: user.id, 
             username: user.username,
             fullName: user.fullName,
             email: user.email,

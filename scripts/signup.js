@@ -184,8 +184,14 @@ form.addEventListener('submit', (e) => {
         return;
     }
 
+    // В функции создания пользователя (в signup.js)
+    function generateUserId() {
+        return 'user_' + Math.random().toString(36).substr(2, 9);
+    }
+
     // Создание нового пользователя
     const newUser = {
+        id: generateUserId(),
         fullName,
         email,
         username,
